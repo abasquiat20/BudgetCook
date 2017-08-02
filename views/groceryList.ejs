@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>BudgetCook</title>
+  <!-- Compiled and minified CSS -->
+  <link rel='stylesheet' href='css/style.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css'>
+  <!-- Add icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <meta name='viewport' content='initial-scale=1.0, user-scalable=no'>
+  <meta charset='utf-8'>
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    
+    main {
+      flex: 1 0 auto;
+    }
+    /*html,*/
+    /*body {*/
+    /*  height: 90%;*/
+    /*  margin: 200;*/
+    /*  padding: 10;*/
+    /*}*/
+  </style>
+</head>
+
+<body class = "groceryListBody">
+  <!-- Dropdown Structure -->
+  <ul id="dropdown1" class="dropdown-content lime darken-1">
+    <li><a href="/stores">Stores Near You</a></li>
+    <li><a href="#!">Find Deals</a></li>
+    <li class="divider lime darken-1"></li>
+    <li><a href="/home1">Recipes</a></li>
+    <li><a href="/groceryList">My Grocery List</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper lime darken-1">
+      <a href="#" class="brand-logo center"><img class="groceryLogo" src="img/bclogo.png" /></a>
+      <a href="/home1" class="left brand-logo" id="logoName">
+        <font size="10">BudgetCook</font>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li class="navtext  hide-on-med-and-down noline" id="third">
+          <a href="/about">
+            <font color="white" size="4">About BudgetCook</font>
+          </a>
+        </li>
+        <li class="navtext" id="fifth">
+          <a href="/login">
+            <font color="white" size="4">Log In</font>
+          </a>
+        </li>
+
+
+        <!-- Dropdown Trigger -->
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">
+            <font color="white" size="4">Get Started</font><i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+ <li class="divider"></li>
+  <!--start main section here-->
+  <main>
+<div id="myDIV" class="header">
+  <h2>My Grocery List</h2>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span onclick="newElement()" class="addBtn">Add</span>
+</div>
+
+<ul class="groceryItems" id="myUL">
+    <font color="white">
+  <li>Example: Lettuce</li>
+  </font>
+</ul>
+</main>
+  <footer class="page-footer lime darken-1 ">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Support</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Contact Us</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Customer Support</a>
+              </li>
+              <li><a class="grey-text text-lighten-3" href="#!">Site Map</a></li>
+            </ul>
+          </div>
+        </div>
+
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Follow Us</h5>
+            <ul>
+              <p>@BudgetCook
+              </p>
+              <li>
+                <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/login" class="fa fa-twitter"></a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/accounts/login/" class="fa fa-instagram"></a>
+              </li>
+              <li>
+                <a href="https://www.pinterest.com/" class="fa fa-pinterest"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2017 BudgetCook
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+        </div>
+      </div>
+  </footer>
+
+<script src="js/groceryList.js">
+</script>
+  <script src="js/getCoupons.js">
+  </script>
+  <script src="js/getRecipes.js">
+  </script>
+</body>
+
+</html>

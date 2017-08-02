@@ -1,0 +1,489 @@
+html {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+body {
+    background-color: #efebe9;
+}
+
+.brand-logo {
+    font-family: 'Optima';
+    top: 0%;
+    height: 15px;
+}
+
+.navtext {
+    font-family: Hawaii 5-0, sans-serif;
+}
+
+
+/*#fifth {*/
+
+
+/*    position: absolute;*/
+
+
+/*    top: 1%;*/
+
+
+/*    right: 3%;*/
+
+
+/*}*/
+
+
+/*#fourth {*/
+
+
+/*    position: absolute;*/
+
+
+/*    top: 1%;*/
+
+
+/*    right: 10%;*/
+
+
+/*}*/
+
+
+/*#third {*/
+
+
+/*    position: absolute;*/
+
+
+/*    top: 1%;*/
+
+
+/*    right: 18%;*/
+
+
+/*}*/
+
+#findAGrocery {
+    font-family: ‘Lucida Grande’;
+}
+
+#login {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+#table {
+    position: absolute;
+    width: 570px;
+    height: 650px;
+    top: 15%;
+    left: 30%;
+    background: white;
+    border-style: solid;
+    border-color: #c0ca33;
+}
+
+.loginBody {
+    background: /* top, transparent black, faked with gradient */
+    url("http://img.freepik.com/free-photo/boards-with-fuzzy-vegetables-background_1253-44.jpg?size=338&ext=jpg");
+}
+
+.aboutBody {
+    background: /* top, transparent black, faked with gradient */
+    url("http://static.wixstatic.com/media/ba9cec_5e1be6b02db1466eb55c298ed963d589.jpg");
+}
+
+.groceryListBody {
+    background: /* top, transparent black, faked with gradient */
+    url("http://static.wixstatic.com/media/ba9cec_5e1be6b02db1466eb55c298ed963d589.jpg");
+}
+
+#loginHeading {
+    font-family: sans-serif;
+    color: #00796b;
+}
+
+.groceryLogo {
+    height: 62px;
+    left: 50%;
+}
+
+#map {
+    width: 50%;
+    height: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+    border: 2px solid #c0ca33;
+    border-color: #c0ca33;
+}
+
+.card-title {
+    color: black;
+}
+
+
+/*.userInput {
+    */
+
+
+/*    width: 50px;*/
+
+
+/*    height: 50px;*/
+
+
+/*}*/
+
+
+/*.userBudget {*/
+
+
+/*    width: 50px;*/
+
+
+/*    height: 50px;*/
+
+
+/*}*/
+
+.floating-box {
+    width: 600px;
+    height: 800px;
+    background-color: white;
+}
+
+.aboutBC {
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.about {
+    font-size: 200%;
+}
+
+.dealsTitle {
+    font-size: 300%;
+    width: 600px;
+    margin-left: 25%;
+}
+
+.budgetSearch {
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+}
+
+.recipeSearch {
+    display: inline-block;
+    width: 400px;
+    vertical-align: top;
+}
+
+.bothsearchbars {
+    margin: auto;
+}
+
+
+/* Facebook */
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    width: 17px;
+    height: 17px;
+}
+
+
+/* Twitter */
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+    width: 17px;
+    height: 17px;
+}
+
+
+/* Insta */
+
+.fa-instagram {
+    width: 17px;
+    height: 17px;
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+    color: white;
+}
+
+
+/* Pinterest */
+
+.fa-pinterest {
+    background: #bd081c;
+    color: white;
+    width: 17px;
+    height: 17px;
+}
+
+
+/* Include the padding and border in an element's total width and height */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* Remove margins and padding from the list */
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Style the list items */
+
+.ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    font: white;
+    transition: 0.2s;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Darker background-color on hover */
+
+.hover {
+    background: #ddd;
+}
+
+
+/* When clicked on, add a background color and strike out text */
+
+.groceryItems.checked {
+    background: #c0ca33;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+
+/* Add a "checked" mark when clicked on */
+
+
+/*.checked::before {*/
+
+
+/*    content: '';*/
+
+
+/*    position: absolute;*/
+
+
+/*    border-color: #fff;*/
+
+
+/*    border-style: solid;*/
+
+
+/*    border-width: 0 2px 2px 0;*/
+
+
+/*    top: 10px;*/
+
+
+/*    left: 16px;*/
+
+
+/*    transform: rotate(45deg);*/
+
+
+/*    height: 15px;*/
+
+
+/*    width: 7px;*/
+
+
+/*}*/
+
+
+/* Style the close button */
+
+
+/*.close {*/
+
+
+/*    position: absolute;*/
+
+
+/*    right: 0;*/
+
+
+/*    top: 0;*/
+
+
+/*    padding: 12px 16px 12px 16px;*/
+
+
+/*}*/
+
+
+/*.close:hover {*/
+
+
+/*    background-color: #c0ca33;*/
+
+
+/*    color: white;*/
+
+
+/*}*/
+
+
+/* Style the header */
+
+.header {
+    background-color: transparent;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+
+/* Clear floats after the header */
+
+.header:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Style the input */
+
+.myinput {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    font: white;
+}
+
+
+/* Style the "Add" button */
+
+.addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #c0ca33;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.addBtn:hover {
+    background-color: #bbb;
+}
+
+.footerLogo {
+    height: 100px;
+    width: 100px;
+    margin-right: 0%;
+}
+
+.recipeSearch {
+    text-color: white
+}
+
+
+/* Custom Stylesheet */
+
+
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+    color: #444;
+}
+
+p {
+    line-height: 2rem;
+}
+
+.button-collapse {
+    color: #26a69a;
+}
+
+.parallax-container {
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255, 255, 255, .9);
+}
+
+.parallax-container .section {
+    width: 100%;
+}
+
+@media only screen and (max-width: 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #index-banner .section {
+        top: 0;
+    }
+}
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+footer.page-footer {
+    margin: 0;
+}
+
+.groceryLogo {
+    height: 62px;
+    left: 50%;
+}
+
+.profile-pic {
+    margin-left: 25%;
+    height: 300px;
+}
+
+#google-signin {
+    margin-left: 25%
+}
+
+#signout {
+    margin-left: 40%;
+}

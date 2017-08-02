@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BudgetCook</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel= 'stylesheet' href= 'css/style.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css'>
+    <!-- Compiled and minified JavaScript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js'></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/css/materialize.min.css">
+            <link rel="stylesheet" href="css/style.css" />
+             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+    <meta name='viewport' content='initial-scale=1.0, user-scalable=no'>
+    <meta charset='utf-8'>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 75%;
+        width: 50%
+        position: center;
+        
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 90%;
+        margin: 200;
+        padding: 10;
+      }
+    </style>
+  </head>
+  <body>
+  <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content lime darken-1">
+ <li><a href="/stores">Stores Near You</a></li>
+    <li><a href="/coupons">Find Deals</a></li>
+    <li class="divider lime darken-1"></li>
+    <li><a href="/home1">Recipes</a></li>
+    <li><a href="/groceryList">My Grocery List</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper lime darken-1">
+          <a href="#" class="brand-logo center"><img class="groceryLogo" src="img/bclogo.png" /></a>
+    <a href="/home1" class="left brand-logo" id= "logoName"><font color="white" size= "10">BudgetCook</font></a>
+    <ul class="right hide-on-med-and-down">
+       <li class= "navtext  hide-on-med-and-down noline" id= "third"><a href="/about"><font color= "white" size= "4">About BudgetCook</font></a></li>
+                 <li class= "navtext" id= "fifth"><a href="/login"><font color= "white" size="4">Log In</font></a></li>
+               
+      <!-- Dropdown Trigger -->
+      <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><font color= "white" size= "4">Get Started</font><i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+    <div class="container">
+        <h1 id= "findAGrocery"><center>Find A Store Near You!<i class="large material-icons">local_grocery_store</i></center></h1>
+        <form>
+            <p> Enter store here:
+                <input name = 'location1' id = "location2"/>
+            </p>
+            
+            
+       </form>
+       <button type = 'button' id = "submitButton" ><center> Submit</center></button>
+   </div>
+   <br/>
+    <div id='map'></div>
+    <div class="container-responsive">
+        <div class="row" id="recipe">
+    
+        </div>
+    </div>
+    <script>
+        var pos
+        var map, infoWindow;
+       
+       
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 15
+          });
+          //infoWindow = new google.maps.InfoWindow;
+          
+          // Try HTML5 geolocation.
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              
+            
+
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+              });
+              
+              map.setCenter(pos);
+              
+ 
+              
+              document.getElementById('submitButton').onclick = function() {getStoreLocation()}
+             
+ 
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+            
+          } else {
+            // Browser doesn’t support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
+          
+          
+        }
+ 
+       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\‘t support geolocation.');
+          infoWindow.open(map);
+        }
+        
+      function getStoreLocation(){
+              var input = document.getElementById('location2').value
+              console.log(input)
+              var apiKey = 'AIzaSyAZIbnQCKDwe4CV2SgIS_z-s7Eiwu-y_WM'
+              var url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${pos.lat},${pos.lng}&radius=500&keyword=${input}&key=${apiKey}`              
+            
+              fetch(url)
+              .then(function(data){
+                return data.json()
+            //to actually get the data and not the promise, write above and below
+              })
+              .then(function(json){
+                console.log(json)
+                var locationArray = json.results
+                console.log(locationArray)
+                for (i=0; i< locationArray.length; i++) {
+                  var latitudeOfInput_i = json.results[i].geometry.location.lat
+                  var longitudeOfInput_i = json.results[i].geometry.location.lng
+                  var pos_i = {
+                    lat: latitudeOfInput_i,
+                    lng: longitudeOfInput_i
+                  };
+                  var marker_i = new google.maps.Marker({
+                    position: pos_i,
+                    map: map
+                  });
+                }
+              })
+      }
+   
+
+   </script>
+    <footer class="page-footer lime darken-1 ">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Support</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Contact Us</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="#!">Customer Support</a>
+              </li>
+              <li><a class="grey-text text-lighten-3" href="#!">Site Map</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col l4 offset-l2 s12 ">
+          <h5 class="white-text ">Follow Us</h5>
+          <ul>
+            <p>@BudgetCook
+            </p>
+            <li>
+              <a href="https://www.facebook.com/ " class="fa fa-facebook "></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/login " class="fa fa-twitter "></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/accounts/login/ " class="fa fa-instagram "></a>
+            </li>
+            <li>
+              <a href="https://www.pinterest.com/ " class="fa fa-pinterest "></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright ">
+      <div class="container ">
+        © 2017 BudgetCook
+        <a class="grey-text text-lighten-4 right " href="#! ">More Links</a>
+      </div>
+    </div>
+  </footer>
+        
+    <script async defer
+        src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAZIbnQCKDwe4CV2SgIS_z-s7Eiwu-y_WM&callback=initMap'>
+    </script>
+
+ </body>
+
+
+</html>
+
+ 
+ 
+
+
+ 
+    
+
+ 
+
+
+
+
+
+
+
+
+
+ 
