@@ -41,13 +41,13 @@
     <li><a href="/stores">Stores Near You</a></li>
     <li><a href="#!">Find Deals</a></li>
     <li class="divider lime darken-1"></li>
-    <li><a href="/home1">Recipes</a></li>
+    <li><a href="/">Recipes</a></li>
     <li><a href="/groceryList">My Grocery List</a></li>
   </ul>
   <nav>
     <div class="nav-wrapper lime darken-1">
       <a href="#" class="brand-logo center"><img class="groceryLogo" src="img/bclogo.png" /></a>
-      <a href="/home1" class="left brand-logo" id="logoName">
+      <a href="/" class="left brand-logo" id="logoName">
         <font size="10">BudgetCook</font>
       </a>
       <ul class="right hide-on-med-and-down">
@@ -75,22 +75,28 @@
   <!--start main section here-->
   <main>
 <div id="myDIV" class="header">
-  <h2>My Grocery List</h2>
+  <h2 class="grocerylistheading">My Grocery List</h2>
   <input type="text" id="myInput" placeholder="Title...">
-  <span onclick="newElement()" class="addBtn">Add</span>
+  <span onclick="newElement()" class="addBtn" ><font color="white">Add</font></span>
 </div>
 
 <ul class="groceryItems" id="myUL">
-    <font color="white">
-  <li>Example: Lettuce</li>
+    <font color="white" size="3" style="bold">
+  <li>Example: Ice-Cream</li>
   </font>
 </ul>
 </main>
+
+ <li class="divider"></li>
+
   <footer class="page-footer lime darken-1 ">
     <div class="container">
       <div class="row">
-        <div class="col l6 s12">
-          <div class="col l4 offset-l2 s12">
+           <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of Prep for Prep IFE students. We did not only create BudgetCook because we were challenged to plan a business, but because we saw a problem in the average grocery shopper's experiences. We knew that BudgetCook will help the everyday adult save money and time.</p>
+    
+        <div class="col l3 s12">
             <h5 class="white-text">Support</h5>
             <ul>
               <li>
@@ -104,7 +110,7 @@
           </div>
         </div>
 
-          <div class="col l4 offset-l2 s12">
+         <div class="col l3 s12">
             <h5 class="white-text">Follow Us</h5>
             <ul>
               <p>@BudgetCook
@@ -132,6 +138,7 @@
         </div>
       </div>
   </footer>
+
 
 <script src="js/groceryList.js">
 </script>

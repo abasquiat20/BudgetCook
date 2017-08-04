@@ -25,7 +25,7 @@ function recipe() {
             recipeInfo.forEach(function(recipe) {
                 var ingredients = ''
 
-                recipe.ingredients.forEach(function(ingredient) {
+                results.ingredients.forEach(function(ingredient) {
                     if (/<[a-z][\s\S]*>/i.test(ingredient)) {
                         ingredient = 'Error loading ingredient. Check full recipe link for instructions!'
                     }
@@ -41,7 +41,7 @@ function recipe() {
                             </div>
                             <div class="card-content">
                               <span class="card-title activator grey-text text-darken-4">${results.title}<i class="material-icons right">more_vert</i></span>
-                              <p><a href="${recipe.url}">Full Recipe</a></p>
+                              <p><a href="${recipe.sourceUrl}">Full Recipe</a></p>
                             </div>
                             <div class="card-reveal">
                               <span class="card-title lime darken-1 grey-text text-darken-4">${results.title}<i class="material-icons right">close</i></span>

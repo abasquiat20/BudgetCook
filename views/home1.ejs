@@ -39,7 +39,7 @@
   <!-- Dropdown Structure -->
   <ul id="dropdown1" class="dropdown-content lime darken-1">
     <li><a href="/stores">Stores Near You</a></li>
-    <li><a href="#!">Find Deals</a></li>
+    <li><a href="/coupons">Find Deals</a></li>
     <li class="divider lime darken-1"></li>
     <li><a href="/home1">Recipes</a></li>
     <li><a href="/groceryList">My Grocery List</a></li>
@@ -75,144 +75,173 @@
 
   <!--start main section here-->
   <main class="container">
+
     <div class="row">
-      <div class="bothsearchbars">
-        <div class="budgetSearch">
-          <p>
-            <font size="6">Enter your Budget here:</font>
-          </p>
-          <nav>
-            <div class="nav-wrapper lime darken-1">
-              <form>
-                <div class="input-field">
-                  <input id="userBudget" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>
+            <div class="bothsearchbars">
+              <div class="budgetSearch">
+                <p>
+                  <font color="white" size="6">Enter your Budget ($) here:</font>
+                </p>
+                <nav>
+                  <div class="nav-wrapper lime darken-1">
+                    <form>
+                      <div class="input-field">
+                        <input id="userBudget" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                      </div>
+                    </form>
+                  </div>
+                </nav>
+              </div>
+
+              <div class="recipeSearch">
+                <p>
+                  <font color="white" size="6">Enter Desired Recipe here:</font>
+                </p>
+                <nav>
+                  <div class="nav-wrapper lime darken-1">
+                    <form>
+                      <div class="input-field">
+                        <input id="userinput" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                      </div>
+                    </form>
+                  </div>
+                </nav>
+              </div>
             </div>
-          </nav>
-        </div>
+          </div>
 
-        <div class="recipeSearch">
-          <p>
-            <font size="6">Enter Desired Recipe here:</font>
-          </p>
-          <nav>
-            <div class="nav-wrapper lime darken-1">
-              <form>
-                <div class="input-field">
-                  <input id="userinput" type="search" required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
+          <br />
+          <div class="container">
+            <button class="btn lime darken-1 " onclick={recipe()}>Find A Recipe<i class="small material-icons">search</i></button>
+            <a class='dropdown-button btn lime darken-1 ' href='#!' data-activates='dropdown2'>Filter by Calories, Diet, Ingredients</a>
 
-    <br />
-
-    <div>
-      <button class="btn lime darken-1 " onclick={ recipe()}>Find A Recipe<i class="small material-icons">search</i></button>
-    </div>
-    <!-- Dropdown Structure -->
-    <!---How do I make this three columns-->
-    <ul id='dropdown1' class='dropdown-content'>
-      <form action="#">
-        <li><a href="#!">Diet<p>
-      <input type="checkbox" id="test5" />
-      <label for="test5">Red</label>
+  <!-- Dropdown Structure -->
+  <ul id='dropdown2' class='dropdown-content'>
+        <form action="#">
+    <li>
+      <a href="#!">Diet<p>
+      <input type="checkbox" id="test5"/>
+      <label for="test5">Vegan</label>
     </p>
       </a></li>
-
-        <li>
-          <a href="#!">
-            <p>
-              <input type="checkbox" id="test6" />
-              <label for="test6">Food</label>
-            </p>
-          </a>
-        </li>
-
-
-        <ul>
-          <li><a href="#!">Ingredients<p>
+      
+     <li><a href="#!"> <p>
+      <input type="checkbox" id="test6"/>
+      <label for="test6">Vegetarian</label>
+    </p>
+      </a></li>
+      
+   
+    <ul>
+    <li><a href="#!">Ingredients<p>
       <input type="checkbox" id="test7" />
-      <label for="test7">blue</label>
+      <label for="test7">Gluten</label>
     </p>
       </a></li>
-
-          <li>
-            <a href="#!">
-              <p>
-                <input type="checkbox" id="test8" />
-                <label for="test8">yellow</label>
-              </p>
-            </a>
-          </li>
-
-          <li>
-            <a href="#!">
-              <p>
-                <input type="checkbox" id="test9" />
-                <label for="test9">green</label>
-              </p>
-            </a>
-          </li>
-        </ul>
-
-        <ul>
-          <li><a href="#!">Calories <p>
+      
+    <li><a href="#!"> <p>
+      <input type="checkbox" id="test8" />
+      <label for="test8">Eggs</label>
+    </p>
+      </a></li>
+      
+     <li><a href="#!"> <p>
+      <input type="checkbox" id="test9" />
+      <label for="test9">Peanuts</label>
+    </p>
+      </a></li>
+      </ul>
+    
+    <ul>
+       <li><a href="#!">Calories <p>
       <input type="checkbox" id="test3" />
-      <label for="test3">green</label>
+      <label for="test3">Numerical Range</label>
     </p>
       </a></li>
-        </ul>
-
-      </form>
-    </ul>
-    </p>
+      </ul>
+      
+    </form>
+  </ul>
+  </div>        
+  
+    <div class="row">
+      <% data.forEach(function(item){ %>
+  
+        <div class="card medium col s4 m4 l4">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= item.image %>">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= item.title %><i class="material-icons right">more_vert</i></span>
+            <p><a href="<%= item.link %>">Link to full recipe</a></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= item.title %><i class="material-icons right">close</i></span>
+            <p>Price (cents) per serving: <%= item.pricePerServing  %></p>
+            <p>Servings: <%= item.servings %></p>
+            <p>Total Cost: $<%= (Number(item.pricePerServing) * Number(item.servings)).toFixed(2) %></p>
+            <p>Instructions:</p>
+            <% item.ingredients[0].steps.forEach(function(step) { %>
+            <p><%= step.number %>) <%= step.step %></p>
+            <h6>Ingredients:</h6>
+            <ul>
+              <% step.ingredients.forEach(function(ing) { %>
+              <li>
+                <img style="width: 40px; height: 40px; border-radius: 50%; display: inline-block" src="<%= ing.image %>" />
+                <%= ing.name %>
+              </li>
+              <% }) %>
+            </ul>
+              
+            <% }) %>
+          </div>
+        </div>    
+      <% }) %>
     </div>
+          
   </main>
 
-  <footer class="page-footer lime darken-1 ">
+  <footer class="page-footer lime darken-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Support</h5>
-            <ul>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Contact Us</a>
-              </li>
-              <li>
-                <a class="grey-text text-lighten-3" href="#!">Customer Support</a>
-              </li>
-              <li><a class="grey-text text-lighten-3" href="#!">Site Map</a></li>
-            </ul>
-          </div>
-        </div>
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of Prep for Prep IFE students. We did not only create BudgetCook because we were challenged to plan a business, but because we saw a problem in the average grocery shopper's experiences. We knew that BudgetCook will help the everyday adult save money and time.</p>
 
-        <div class="col l4 offset-l2 s12 ">
-          <h5 class="white-text ">Follow Us</h5>
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Support</h5>
           <ul>
-            <p>@BudgetCook
-            </p>
+            <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Customer Support</a> </li>
+            <li><a class="grey-text text-lighten-3" href="#!">Site Map</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Follow Us</h5>
+          <ul>
+            <p>@BudgetCook</p>
             <li>
-              <a href="https://www.facebook.com/ " class="fa fa-facebook "></a>
+              <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
             </li>
+            
             <li>
-              <a href="https://twitter.com/login " class="fa fa-twitter "></a>
+              <a href="https://twitter.com/login" class="fa fa-twitter"></a>
             </li>
+            
             <li>
-              <a href="https://www.instagram.com/accounts/login/ " class="fa fa-instagram "></a>
+              <a href="https://www.instagram.com/accounts/login/" class="fa fa-instagram"></a>
             </li>
+            
             <li>
               <a href="https://www.pinterest.com/ " class="fa fa-pinterest "></a>
             </li>
+            
           </ul>
         </div>
       </div>

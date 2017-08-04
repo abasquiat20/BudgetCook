@@ -44,25 +44,25 @@ app.get('/', function(request, response) {
     response.render('lit.ejs')
 })
 
-app.post('/', function(request, response) {
-    var input = request.body.input
+// app.post('/', function(request, response) {
+//     var input = request.body.input
 
-    var url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true'
+//     var url = 'https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true'
 
-    unirest.get(url)
-        .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
-        .header("Accept", "application/json")
-        .end(function(result) {
-            console.log(
-                // result.status,
-                // result.headers,
-                result.body)
+//     unirest.get(url)
+//         .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
+//         .header("Accept", "application/json")
+//         .end(function(result) {
+//             console.log(
+//                 // result.status,
+//                 // result.headers,
+//                 result.body)
 
-            response.render('results.ejs', {
-                data: result.body
-            })
-        });
-})
+//             response.render('results.ejs', {
+//                 data: result.body
+//             })
+//         });
+// })
 
 app.get('/login', function(request, response) {
     response.render('login.ejs')
@@ -99,36 +99,113 @@ app.post('/', function(request, response) {
     response.render('results.ejs')
 })
 
+app.post('/getRecipes', function(request, response) {
+    var input = request.body.userinput
+    var budget = request.body.userBudget
+
+    var url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true&cuisine=american&excludeIngredients=peanut%2C+shellfish%2C+wheat&fillIngredients=true&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=true&intolerances=peanut%2C+shellfish%2C+wheat&limitLicense=false&number=100&offset=0&query=${input}&ranking=1&type=main+course`
+        //query=burger
+
+    unirest.get(url)
+        .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
+        .header("Accept", "application/json")
+        .end(function(result) {
+            // console.log(
+            // result.status,
+            // result.headers,
+            // result.body)
+
+            var wantedData = result.body.results.map(function(item) {
+                // console.log(Object.keys(item))
+                // console.log(item.title)
+                console.log(item.analyzedInstructions)
+                return {
+                    title: item.title,
+                    image: item.image,
+                    ingredients: item.analyzedInstructions,
+                    link: item.sourceUrl,
+                    servings: item.servings,
+                    pricePerServing: Number(item.pricePerServing / 100).toFixed(2)
+                }
+            })
+
+
+            response.render('home1.ejs', {
+                data: wantedData
+            })
+        });
+})
+
 app.get('/about', function(request, response) {
     response.render('about.ejs')
 })
 
-// These code snippets use an open - source library.http: //unirest.io/nodejs
-// get recipes complex search
-unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=true&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=false&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
-    .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
-    .header("Accept", "application/json")
-    .end(function(result) {
-        console.log(
-            // result.status,
-            // result.headers,
-            result.body);
-    });
+// // These code snippets use an open - source library.http: //unirest.io/nodejs
+// // get recipes complex search
+// unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=true&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=false&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
+//     //burger
+//     .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
+//     .header("Accept", "application/json")
+//     .end(function(result) {
+//         console.log(
+//             // result.status,
+//             // result.headers,
+//             result.body);
+//     });
 
-//summarize recipe (calories, diet info, etc.)
-// These code snippets use an open-source library. http://unirest.io/nodejs
-unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/4632/summary")
-    .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
-    .header("Accept", "application/json")
-    .end(function(result) {
-        console.log(result.status, result.headers, result.body);
-    });
+
+
+
+app.post('/getRecipes', function(request, response) {
+    var input = request.body.userinput
+    var budget = request.body.userBudget
+    var id = request.body.id
+
+    var url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/${id}/summary`
+
+
+    unirest.get(url)
+        .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
+        .header("Accept", "application/json")
+        .end(function(result) {
+            console.log(
+                // result.status,
+                // result.headers,
+                result.body)
+
+            var wantedData = result.body.results.map(function(item) {
+                return {
+                    name: item.title,
+                    image: item.image,
+                    ingredients: item.analyzedInstructions,
+                    link: item.sourceUrl,
+                    pricePerServing: item.pricePerServing,
+                    summary: item.summary
+                }
+            })
+
+
+            response.render('home1.ejs', {
+                data: wantedData
+            })
+        });
+})
+
+
+// //summarize recipe (calories, diet info, etc.)
+// // These code snippets use an open-source library. http://unirest.io/nodejs
+// unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/4632/summary")
+//     .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
+//     .header("Accept", "application/json")
+//     .end(function(result) {
+//         console.log(result.status, result.headers, result.body);
+//     });
+
 
 
 
 
 var port = process.env.PORT || 8080
-
 app.listen(port, function() {
     console.log(`App running on ${port}.`)
 })
