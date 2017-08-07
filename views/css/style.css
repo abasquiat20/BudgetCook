@@ -19,45 +19,31 @@ body {
 
 /*#fifth {*/
 
-
 /*    position: absolute;*/
 
-
 /*    top: 1%;*/
-
 
 /*    right: 3%;*/
 
-
 /*}*/
-
 
 /*#fourth {*/
 
-
 /*    position: absolute;*/
 
-
 /*    top: 1%;*/
-
 
 /*    right: 10%;*/
 
-
 /*}*/
-
 
 /*#third {*/
 
-
 /*    position: absolute;*/
-
 
 /*    top: 1%;*/
 
-
 /*    right: 18%;*/
-
 
 /*}*/
 
@@ -111,7 +97,7 @@ body {
 }
 
 .groceryLogo {
-    height: 62px;
+    height: px;
     left: 50%;
 }
 
@@ -134,24 +120,17 @@ body {
 /*.userInput {
     */
 
-
 /*    width: 50px;*/
 
-
 /*    height: 50px;*/
-
 
 /*}*/
 
-
 /*.userBudget {*/
-
 
 /*    width: 50px;*/
 
-
 /*    height: 50px;*/
-
 
 /*}*/
 
@@ -288,75 +267,51 @@ ul {
 
 /* Add a "checked" mark when clicked on */
 
-
 /*.checked::before {*/
-
 
 /*    content: '';*/
 
-
 /*    position: absolute;*/
-
 
 /*    border-color: #fff;*/
 
-
 /*    border-style: solid;*/
-
 
 /*    border-width: 0 2px 2px 0;*/
 
-
 /*    top: 10px;*/
-
 
 /*    left: 16px;*/
 
-
 /*    transform: rotate(45deg);*/
-
 
 /*    height: 15px;*/
 
-
 /*    width: 7px;*/
 
-
 /*}*/
-
 
 /* Style the close button */
 
-
 /*.close {*/
-
 
 /*    position: absolute;*/
 
-
 /*    right: 0;*/
-
 
 /*    top: 0;*/
 
-
 /*    padding: 12px 16px 12px 16px;*/
 
-
 /*}*/
-
 
 /*.close:hover {*/
 
-
 /*    background-color: #c0ca33;*/
-
 
 /*    color: white;*/
 
-
 /*}*/
-
 
 /* Style the header */
 
@@ -378,7 +333,6 @@ ul {
 
 
 /* Style the input */
-
 
 /* Style the "Add" button */
 
@@ -410,7 +364,6 @@ ul {
 
 
 /* Custom Stylesheet */
-
 
 /**
  * Use this file to override Materialize files so you can update

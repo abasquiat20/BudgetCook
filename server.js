@@ -103,8 +103,8 @@ app.post('/getRecipes', function(request, response) {
     var input = request.body.userinput
     var budget = request.body.userBudget
 
-    var url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true&cuisine=american&excludeIngredients=peanut%2C+shellfish%2C+wheat&fillIngredients=true&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=true&intolerances=peanut%2C+shellfish%2C+wheat&limitLicense=false&number=100&offset=0&query=${input}&ranking=1&type=main+course`
-        //query=burger
+    var url = `https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true&cuisine=american&excludeIngredients=peanut%2C+shellfish%2C+wheat&fillIngredients=true&instructionsRequired=true&intolerances=peanut%2C+shellfish%2C+wheat&limitLicense=false&number=100&offset=0&query=${input}&ranking=1`
+
 
     unirest.get(url)
         .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
@@ -131,7 +131,8 @@ app.post('/getRecipes', function(request, response) {
 
 
             response.render('home1.ejs', {
-                data: wantedData
+                data: wantedData,
+                budget: budget
             })
         });
 })
@@ -139,20 +140,6 @@ app.post('/getRecipes', function(request, response) {
 app.get('/about', function(request, response) {
     response.render('about.ejs')
 })
-
-// // These code snippets use an open - source library.http: //unirest.io/nodejs
-// // get recipes complex search
-// unirest.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/searchComplex?addRecipeInformation=true&cuisine=american&excludeIngredients=coconut%2C+mango&fillIngredients=true&includeIngredients=onions%2C+lettuce%2C+tomato&instructionsRequired=false&intolerances=peanut%2C+shellfish&limitLicense=false&maxCalories=1500&maxCarbs=100&maxFat=100&maxProtein=100&minCalories=150&minCarbs=5&minFat=5&minProtein=5&number=10&offset=0&query=burger&ranking=1&type=main+course")
-//     //burger
-//     .header("X-Mashape-Key", "gw8U3UHuzFmshegAvyLYSWtlahe5p1GP06Wjsn9oYcd1YycUqs")
-//     .header("Accept", "application/json")
-//     .end(function(result) {
-//         console.log(
-//             // result.status,
-//             // result.headers,
-//             result.body);
-//     });
-
 
 
 

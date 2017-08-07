@@ -46,7 +46,7 @@
   </ul>
   <nav>
     <div class="nav-wrapper lime darken-1">
-          <a href="#" class="brand-logo center"><img class="groceryLogo" src="img/bclogo.png" /></a>
+          <a href="#" class="brand-logo center"><img class="groceryLogo" src="img/croppedlogo.png" /></a>
        <a href="/home" class="left brand-logo" id= "logoName"><font size= "10">BudgetCook</font></a>
       <a href="/home1" class="left brand-logo" id="logoName">
         <font size="10">BudgetCook</font>
@@ -116,7 +116,7 @@
 
           <br />
           <div class="container">
-            <button class="btn lime darken-1 " onclick={recipe()}>Find A Recipe<i class="small material-icons">search</i></button>
+            <button class="btn lime darken-1 " href='/'>Find A Recipe</button>
             <a class='dropdown-button btn lime darken-1 ' href='#!' data-activates='dropdown2'>Filter by Calories, Diet, Ingredients</a>
 
   <!-- Dropdown Structure -->
@@ -168,6 +168,9 @@
   </ul>
   </div>        
   
+  <h4 class="green-text">Your budget: $<%= Number(budget).toFixed(2) %></h4>
+  <h4 class="green-text">Look for your food items below </h4>
+
     <div class="row">
       <% data.forEach(function(item){ %>
   
@@ -181,8 +184,8 @@
           </div>
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%= item.title %><i class="material-icons right">close</i></span>
-            <p>Price (cents) per serving: <%= item.pricePerServing  %></p>
-            <p>Servings: <%= item.servings %></p>
+            <p>Average price (cents) per serving: <%= item.pricePerServing  %></p>
+            <p>Average number of servings: <%= item.servings %></p>
             <p>Total Cost: $<%= (Number(item.pricePerServing) * Number(item.servings)).toFixed(2) %></p>
             <p>Instructions:</p>
             <% item.ingredients[0].steps.forEach(function(step) { %>
