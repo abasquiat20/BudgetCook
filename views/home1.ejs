@@ -166,11 +166,12 @@
       
     </form>
   </ul>
-  </div>        
+  </div>
   
-  <h4 class="white-text">Your budget: $<%= Number(budget).toFixed(2) %></h4>
-  <h4 class="white-text">Look for your food items below </h4>
-
+  <div class="budgetIdentity">
+  <h4 class="center">Your budget: $<%= Number(budget).toFixed(2) %></h4>
+  <h4 class="center">Look for your food items below </h4>
+</div>
     <div class="row">
       <% data.forEach(function(item){ %>
   
