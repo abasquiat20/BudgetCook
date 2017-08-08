@@ -462,12 +462,11 @@ footer.page-footer {
 
 .groceryItems {
     display: inline-block;
+    width: 500px;
     font-family: 'Gabriela', serif;
     color: white;
-    font-size: 4;
-    border-radius: 20px;
+    font-size: 6;
     background: #c0ca33;
-    padding: 0.5em 0.2em 0.8em 0.5em;
 }
 
 .budgetIdentity {
