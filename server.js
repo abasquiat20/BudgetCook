@@ -80,6 +80,7 @@ app.get('/groceryList', function(request, response) {
     response.render('groceryList.ejs')
 })
 
+
 app.get('/signup', function(request, response) {
     response.render('signup.ejs')
 })

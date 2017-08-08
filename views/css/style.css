@@ -73,7 +73,7 @@ body {
 
 .couponBody {
     background: /* top, transparent black, faked with gradient */
-    url("coupons.jpg");
+    url("stores1.jpeg");
 }
 
 .aboutBody {
@@ -153,6 +153,7 @@ body {
     font-size: 300%;
     width: 600px;
     margin-left: 25%;
+    font: white;
 }
 
 .budgetSearch {
